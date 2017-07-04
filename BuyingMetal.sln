@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuyingMetal", "BuyingMetal\BuyingMetal.csproj", "{C9F3809F-C595-4B99-97F6-E3A42B6C0BDD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B6288C92-745E-485C-A345-552A94781486}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\admin\Desktop\protoype.jpg = C:\Users\admin\Desktop\protoype.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "html", "html", "{88DE3E82-E7F2-44AF-B09F-D97BFDFBAA85}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\admin\Desktop\theme.zip = C:\Users\admin\Desktop\theme.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +28,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88DE3E82-E7F2-44AF-B09F-D97BFDFBAA85} = {B6288C92-745E-485C-A345-552A94781486}
 	EndGlobalSection
 EndGlobal
