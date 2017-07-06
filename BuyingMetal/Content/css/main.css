@@ -1,6 +1,6 @@
 /* FONTS */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
 /* OVERALL ASPECT */
 
@@ -11,73 +11,84 @@
 .upc {
 	text-transform: uppercase;
 }
+.price-table  {
+	font-size: 110%;
+}
+
+.price-table th {
+	text-align: center;
+}
+
+	.price-table td {
+		text-align: left;
+		font-weight: 500;
+	}
 
 body {
-  background-color: #f2f2f2;
+	background-color: #f2f2f2;
 	font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
-
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-    
-    margin-top: 70px;
+	font-weight: 300;
+	font-size: 16px;
+	color: #555;
+	-webkit-font-smoothing: antialiased;
+	-webkit-overflow-scrolling: touch;
+	margin-top: 70px;
 }
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    color: #333;
+	font-family: Raleway, sans-serif;
+	font-weight: 300;
+	color: #333;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 }
 
 
 /* Paragraph & Typographic */
 p {
-    line-height: 28px;
-    margin-bottom: 25px;
+	line-height: 28px;
+	margin-bottom: 25px;
 }
 
 .centered {
-    text-align: center;
+	text-align: center;
 }
 
 /* Links */
 a {
-    color: #f85c37;
-    word-wrap: break-word;
-
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
+	color: #f85c37;
+	word-wrap: break-word;
+	-webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-o-transition: color 0.1s ease-in, background 0.1s ease-in;
+	transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
-a:hover,
-a:focus {
-    color: #7b7b7b;
-    text-decoration: none;
-    outline: 0;
-}
+	a:hover,
+	a:focus {
+		color: #7b7b7b;
+		text-decoration: none;
+		outline: 0;
+	}
 
-a:before,
-a:after {
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-}
+	a:before,
+	a:after {
+		-webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+		-moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+		-ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+		-o-transition: color 0.1s ease-in, background 0.1s ease-in;
+		transition: color 0.1s ease-in, background 0.1s ease-in;
+	}
 
- hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
 }
 
 
@@ -93,39 +104,39 @@ a:after {
 	border-color: #2d2d2d;
 }
 
-.navbar-inverse .navbar-nav > .active > a {
-	background: #ff7878
-}
+	.navbar-inverse .navbar-nav > .active > a {
+		background: #ff7878
+	}
 
-.navbar-inverse .navbar-brand {
-	color: #999999;
-	font-weight: bolder;
-	font-size: 22px;
-	letter-spacing: 1px;
-}
+	.navbar-inverse .navbar-brand {
+		color: #999999;
+		font-weight: bolder;
+		font-size: 22px;
+		letter-spacing: 1px;
+	}
 
-.navbar-inverse .navbar-brand i {
-	color: #ff7878;
-	font-size: 22px;
-	letter-spacing: 1px;
-}
+		.navbar-inverse .navbar-brand i {
+			color: #ff7878;
+			font-size: 22px;
+			letter-spacing: 1px;
+		}
 
 /*TILT*/
 .tilt {
-  -webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-       -o-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-          transition: all 0.5s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
- 
-.tilt:hover {
-  -webkit-transform: rotate(-10deg);
-     -moz-transform: rotate(-10deg);
-       -o-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
-          transform: rotate(-10deg);
-}
+
+	.tilt:hover {
+		-webkit-transform: rotate(-10deg);
+		-moz-transform: rotate(-10deg);
+		-o-transform: rotate(-10deg);
+		-ms-transform: rotate(-10deg);
+		transform: rotate(-10deg);
+	}
 
 /* ==========================================================================
    Wrap Sections
@@ -134,39 +145,37 @@ a:after {
 #headerwrap {
 	background: url(/Images/header-bg.jpg) no-repeat center top;
 	margin-top: -10px;
-	padding-top:20px;
-	text-align:center;
+	padding-top: 20px;
+	text-align: center;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 500px;
 	width: 100%;
-	
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
-#headerwrap h1 {
-	margin-top: 100px;
-	color: white;
-	font-size: 70px;
-	font-weight: 300;
-	letter-spacing: 3px;
-}
+	#headerwrap h1 {
+		margin-top: 100px;
+		color: white;
+		font-size: 70px;
+		font-weight: 300;
+		letter-spacing: 3px;
+	}
 
-#headerwrap h2 {
-	color: white;
-	font-size: 40px;
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-}
+	#headerwrap h2 {
+		color: white;
+		font-size: 40px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+	}
 
 /* Dark Grey Wrap */
 #dg {
@@ -176,21 +185,21 @@ a:after {
 	text-align: center;
 }
 
-#dg h4 {
-	font-weight: 700;
-}
+	#dg h4 {
+		font-weight: 700;
+	}
 
 /* Light Grey */
-#lg {
+.lg {
 	background: #ebebeb;
 	padding-top: 70px;
 	padding-bottom: 70px;
 	text-align: center;
 }
 
-#lg h4 {
-	font-weight: 700;
-}
+	.lg h4 {
+		font-weight: 700;
+	}
 
 
 /* Red Wrap */
@@ -200,14 +209,14 @@ a:after {
 	padding-bottom: 35px;
 }
 
-#r h4 {
-	color: white;
-	font-weight: 700;
-}
+	#r h4 {
+		color: white;
+		font-weight: 700;
+	}
 
-#r p {
-	color: white;
-}
+	#r p {
+		color: white;
+	}
 
 /* Blue Wrap */
 
@@ -217,14 +226,14 @@ a:after {
 	padding-bottom: 35px;
 }
 
-#blue h4 {
-	color: white;
-	font-weight: 700;
-}
+	#blue h4 {
+		color: white;
+		font-weight: 700;
+	}
 
-#blue p {
-	color: white;
-}
+	#blue p {
+		color: white;
+	}
 
 
 
@@ -235,15 +244,15 @@ a:after {
 	padding-bottom: 30px;
 }
 
-#f i {
-	color: #bdbdbd;
-	font-size: 30px;
-	padding: 20px;
-}
+	#f i {
+		color: #bdbdbd;
+		font-size: 30px;
+		padding: 20px;
+	}
 
-#f i:hover {
-	color: #ff7878;
-}
+		#f i:hover {
+			color: #ff7878;
+		}
 
 /****** SECTIONS *****/
 
@@ -252,18 +261,18 @@ a:after {
 }
 
 	.w .title {
-		font-weight: 700;
-		font-size:30px;
+		font-weight: 500;
+		font-size: 30px;
 	}
 
-.w h4 {
-	font-weight: 700;
-}
+	.w h4 {
+		font-weight: 700;
+	}
 
-.w i {
-	color: #ff7878;
-	font-size: 30px;
-}
+	.w i {
+		color: #ff7878;
+		font-size: 30px;
+	}
 
 
 .wb {
@@ -271,28 +280,27 @@ a:after {
 	margin-bottom: 0px;
 }
 
-.wb h4 {
-	font-weight: 700;
-}
+	.wb h2 {	
+		font-size: 30px;
+	}
 
 .desc {
 	padding-top: 35px;
 }
 
-.desc h4 {
-	font-weight: 700;
-}
+	.desc h4 {
+		font-weight: 700;
+	}
 
-.desc i {
-	color: #ff7878;
-	font-size: 12px;
-	padding: 5px;
-}
+	.desc i {
+		color: #ff7878;
+		font-size: 12px;
+		padding: 5px;
+	}
 
 /***** MODAL CONTACT *****/
 .modal-content {
 	border-radius: 0px;
-
 }
 
 .modal-header {
@@ -300,117 +308,114 @@ a:after {
 	color: white;
 }
 
-.modal-header h4 {
-	font-weight: 700;
-}
+	.modal-header h4 {
+		font-weight: 700;
+	}
 
 .modal-body {
 	background: #f2f2f2;
 	font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
+	font-weight: 300;
+	font-size: 16px;
+	color: #555;
 }
 
 .modal-footer {
 	background: #f2f2f2;
-	margin-top: 0px; 
+	margin-top: 0px;
 }
 
 /* ==========================================================================
    Pricing Tables
    ========================================================================== */
-   
+
 .pricing-option {
-    padding-bottom: 40px;
+	padding-bottom: 40px;
 }
 
-.pricing-option .pricing-top {
-    position: relative;
-    background: #222;
-    color: white;
-    text-align: center;
-    font-weight: bold;
+	.pricing-option .pricing-top {
+		position: relative;
+		background: #222;
+		color: white;
+		text-align: center;
+		font-weight: bold;
+		padding: 40px 20px 30px 20px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
 
-    padding: 40px 20px 30px 20px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.pricing-option .pricing-top .special-label {
-    display: block;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: #1abc9c;
-    text-transform: uppercase;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 3px 0;
-}
+		.pricing-option .pricing-top .special-label {
+			display: block;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #1abc9c;
+			text-transform: uppercase;
+			font-size: 15px;
+			font-weight: bold;
+			padding: 3px 0;
+		}
 
 .special .pricing-top {
-    background: black;
+	background: black;
 }
 
 .pricing-option .pricing-edition {
-    text-transform: uppercase;
-    display: block;
-    font-size: 25px;
-    letter-spacing: 8px;
+	text-transform: uppercase;
+	display: block;
+	font-size: 25px;
+	letter-spacing: 8px;
 }
 
 .pricing-option .price {
-    display: inline-block;
-    position: relative;
+	display: inline-block;
+	position: relative;
 }
 
-.pricing-option .price sup {
-    position: absolute;
-    top: 50px;
-    left: -10px;
-    font-size: 24px;
-}
+	.pricing-option .price sup {
+		position: absolute;
+		top: 50px;
+		left: -10px;
+		font-size: 24px;
+	}
 
-.pricing-option .price .price-amount {
-    font-size: 108px;
-    letter-spacing: -4px;
-}
+	.pricing-option .price .price-amount {
+		font-size: 108px;
+		letter-spacing: -4px;
+	}
 
-.pricing-option .price small {
-    position: relative;
-    left: -10px;
-    font-size: 18px;
-}
+	.pricing-option .price small {
+		position: relative;
+		left: -10px;
+		font-size: 18px;
+	}
 
 .pricing-option ul {
-    list-style: none;
-    margin: 0;
-    background: #eee;
-    text-align: center;
-    padding-left: 0px;
+	list-style: none;
+	margin: 0;
+	background: #eee;
+	text-align: center;
+	padding-left: 0px;
 }
 
-.pricing-option ul li {
-    border-bottom: solid 1px #e1e1e1;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+	.pricing-option ul li {
+		border-bottom: solid 1px #e1e1e1;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
 
 .pricing-option .pricing-signup {
-    display: block;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 15px 10px;
-    color: white;
-    background: #1abc9c;
+	display: block;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 15px 10px;
+	color: white;
+	background: #1abc9c;
 }
 
-.pricing-option .pricing-signup:hover {
-    background: #ff7878;
-}
-
-
+	.pricing-option .pricing-signup:hover {
+		background: #ff7878;
+	}
