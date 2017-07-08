@@ -64,7 +64,7 @@ namespace BuyingMetal
 
 	public static class SendMailEx
 	{
-		public static Task SendMailExAsyncOrder(string tel)
+		public static Task SendMailExAsyncOrder(string tel, string msg)
 		{
 
 			var sMTPHost = WebConfigurationManager.AppSettings["SMTPHost"];
@@ -81,7 +81,8 @@ namespace BuyingMetal
 			var mailTo = WebConfigurationManager.AppSettings["MailTo"];
 			//var MailTo2 = WebConfigurationManager.AppSettings["MailTo2"];
 			var mailSubject = WebConfigurationManager.AppSettings["MailSubject"];
-			var mailBody = WebConfigurationManager.AppSettings["MailBody"];
+			//var mailBody = WebConfigurationManager.AppSettings["MailBody"];
+			var mailBody = "Клиент " + tel +". "+msg;
 			var smtp = new SmtpClient(sMTPHost, sMTPPort);
 
 			smtp.EnableSsl = enableSsl;
@@ -95,10 +96,10 @@ namespace BuyingMetal
 			message.SubjectEncoding = Encoding.UTF8;
 
 
-			return Task.Run(() => SendMailExImplAsync(smtp, message));
+			return Task.Run(() => SendMailExImpl(smtp, message));
 		}
 
-		private static async Task SendMailExImplAsync(
+		private static void SendMailExImpl(
 			System.Net.Mail.SmtpClient client,
 			System.Net.Mail.MailMessage message)
 		{
