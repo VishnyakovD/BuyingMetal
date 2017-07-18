@@ -428,3 +428,13 @@ hr {
 	.pricing-option .pricing-signup:hover {
 		background: #ff7878;
 	}
+
+
+	@media (max-width:767px){
+		.navbar-inverse .navbar-brand{
+			font-size:20px;
+		}
+		#headerwrap h1 {
+			font-size: 45px;
+		}
+	}
