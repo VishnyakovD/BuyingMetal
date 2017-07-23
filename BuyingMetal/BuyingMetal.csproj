@@ -159,21 +159,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\c01.gif" />
-    <Content Include="Images\c02.gif" />
-    <Content Include="Images\c03.gif" />
-    <Content Include="Images\c04.gif" />
-    <Content Include="Images\c05.gif" />
     <Content Include="Images\header-bg.jpg" />
-    <Content Include="Images\link_icon.png" />
-    <Content Include="Images\munter.png" />
-    <Content Include="Images\p01.png" />
-    <Content Include="Images\p02.png" />
-    <Content Include="Images\p03.png" />
-    <Content Include="Images\pic.jpg" />
-    <Content Include="Images\pic2.jpg" />
-    <Content Include="Images\pic3.jpg" />
-    <Content Include="Images\pic4.jpg" />
+    <Content Include="Images\bg-2.jpg" />
+    <Content Include="Images\header-bg-orig.jpg" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
