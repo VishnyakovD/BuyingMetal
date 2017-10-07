@@ -153,6 +153,9 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -163,6 +166,8 @@
     <Content Include="Images\header-bg.jpg" />
     <Content Include="Images\bg-2.jpg" />
     <Content Include="Images\header-bg-orig.jpg" />
+    <Content Include="Images\metal.gif" />
+    <Content Include="Images\phone.gif" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -196,6 +201,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
   </ItemGroup>
   <PropertyGroup>

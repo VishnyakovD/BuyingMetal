@@ -443,7 +443,7 @@ hr {
 .extra-call {
 	position: fixed;
 	bottom: 0;
-	background: #68d079;
+	background: black;
 	left: 0;
 	right: 0;
 	padding: 15px 20px;
@@ -453,6 +453,16 @@ hr {
 	border-top-right-radius: 20px;
 	margin-left: 50px;
 	margin-right: 50px;
+	color: white;
+	overflow: hidden;
+}
+
+.lava {
+	position: absolute;
+	right: -75px;
+	top: 0;
+	height: 135px;
+	z-index: -1;
 }
 
 @media (max-width:1000px){
@@ -476,6 +486,9 @@ hr {
 		margin-right: 10px;
 		font-size: 14px;
 	}
+	.lava {
+		display: none;
+	}
 }
 
 @media (max-width:500px) {
@@ -486,5 +499,8 @@ hr {
 		margin-left: 5px;
 		margin-right: 5px;
 		font-size: 13px;
+	}
+	.lava {
+		display: none;
 	}
 }
