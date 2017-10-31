@@ -557,21 +557,21 @@
 		</div>
 		<div class="row centered">
 			<div class="col-lg-6 col-lg-offset-3">
-				@using (Html.BeginForm("S", "H"))
-			{
-					@Html.AntiForgeryToken()
-					@Html.ValidationSummary(false)
+				@using (Html.BeginForm("S", "H",FormMethod.Post))
+				{
+						@Html.AntiForgeryToken()
+						@Html.ValidationSummary(false)
 
-					<div class="form-group">
-						<div class="input-group">
-							<div class="input-group-addon">+38</div>
-							<input type="number" name="tel" required="" placeholder="0ХХ ХХХ ХХ ХХ" class="form-control" />
+						<div class="form-group">
+							<div class="input-group">
+								<div class="input-group-addon">+38</div>
+								<input type="text" name="tel" required="" pattern="^[0]{1}\d{9}$" placeholder="0ХХ ХХХ ХХ ХХ" class="form-control" title="Введите правильно номер. Пример 0984947650" />
+							</div>
 						</div>
-					</div>
-					<textarea name="message" class="form-control" rows="5" placeholder="Напишите ваш вопрос..."></textarea>
-					<br />
-					<button type="submit" class="btn btn-lg btn-info pull-right">Отправить</button>
-			}
+						<textarea name="message" class="form-control" rows="5" placeholder="Напишите ваш вопрос..." required="" ></textarea>
+						<br />
+						<button type="submit" class="btn btn-lg btn-info pull-right">Отправить</button>
+				}
 
 			</div>
 		</div>
