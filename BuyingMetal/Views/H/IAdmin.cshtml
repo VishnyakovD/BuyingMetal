@@ -44,6 +44,39 @@
 </div>
 
 <div class="container w" id="prices">
+	@using (Html.BeginForm("EL", "H", FormMethod.Post,new {@class="editform" }))
+	{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary(false)
+		<div class="row centered">
+			<div class="col-lg-12">
+				<input type="hidden" name="guid" value="@ViewData["guid"]" />
+				<span>№</span> 
+				<br />
+				<input type="number" readonly="readonly" name="id" value="" style="width:80%" />
+			</div>
+			<div class="col-lg-12">
+				<span>Название</span>
+				<br />
+				<input type="text" name="name" value="" style="width:80%"/>
+			</div>
+			<div class="col-lg-12">
+				<span>Цена</span>
+				<br />
+				<input type="text" name="price" value="" style="width:80%" />
+			</div>
+			<div class="col-lg-12">
+				<span>Описание</span>
+				<br />
+				<input type="text" name="description" value="" style="width:80%" />
+			</div>
+			<div class="col-lg-12">
+				<br />
+				<input type="submit" value="Сохранить" style="width:80%" />
+			</div>
+		</div>
+	}
+
 	<div class="row centered">
 		<div class="col-lg-12">
 			<h1 class="title">Цены на покупку популярных металлов</h1>
@@ -52,19 +85,19 @@
 	</div>
 	<div class="row centered">
 		<br><br>
-		<div class="col-lg-4">
+		<div class="col-lg-4" style="cursor:pointer" onclick="SetEditForm(@Model.Block1.Id,'@Model.Block1.Name','@Model.Block1.Price','@Model.Block1.Description')">
 			<i class="fa fa-heart"></i>
 			<h4 class="upc">@Model.Block1.Name</h4>
 			<p>Покупаем @Model.Block1.Name от <b>@Model.Block1.Price грн за кг</b>.</p>
 			<p style="text-align: left;">@Model.Block1.Description</p>
 		</div>
-		<div class="col-lg-4">
+		<div class="col-lg-4" style="cursor:pointer" onclick="SetEditForm(@Model.Block2.Id,'@Model.Block2.Name','@Model.Block2.Price','@Model.Block2.Description')">
 			<i class="fa fa-heart"></i>
 			<h4 class="upc">@Model.Block2.Name</h4>
 			<p>Покупаем @Model.Block2.Name от <b>@Model.Block2.Price грн за кг</b>.</p>
 			<p style="text-align: left;">@Model.Block2.Description</p>
 		</div>
-		<div class="col-lg-4">
+		<div class="col-lg-4" style="cursor:pointer" onclick="SetEditForm(@Model.Block3.Id,'@Model.Block3.Name','@Model.Block3.Price','@Model.Block3.Description')">
 			<i class="fa fa-heart"></i>
 			<h4 class="upc">@Model.Block3.Name</h4>
 			<p>Покупаем @Model.Block3.Name от <b>@Model.Block3.Price грн за кг</b>.</p>
@@ -90,7 +123,7 @@
 					</tr>
 					@foreach (var item in Model.ListPriceItem)
 					{
-						<tr>
+						<tr style="cursor:pointer" onclick="SetEditForm(@item.Id,'@item.Name','@item.Price','@item.Description')">
 							<td>@item.Id</td>
 							<td class="text-left">@item.Name</td>
 							<td class="text-right">цена</td>
@@ -98,6 +131,20 @@
 						</tr>
 					}
 				</table>
+				<script>
+					function SetEditForm(id, name, price, descr) {
+						var form1 = document.querySelector(".editform");
+						var id1 = form1.querySelector("input[name=id]");
+						var name1 = form1.querySelector("input[name=name]");
+						var price1 = form1.querySelector("input[name=price]");
+						var description1 = form1.querySelector("input[name=description]");
+						id1.value = id;
+						name1.value = name;
+						price1.value = price;
+						description1.value = descr;
+						window.scrollTo(480, 450);
+					}
+				</script>
 			</div>
 		</div>
 	</div>
@@ -143,7 +190,7 @@
 						</div>
 					</div>
 					<textarea name="message" class="form-control" rows="5" placeholder="Напишите ваш вопрос..." required=""></textarea>
-						<br />
+					<br />
 						<button type="submit" class="btn btn-lg btn-info pull-right">Отправить</button>
 				}
 

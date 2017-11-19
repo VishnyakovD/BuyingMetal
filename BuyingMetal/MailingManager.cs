@@ -99,6 +99,39 @@ namespace BuyingMetal
 			return Task.Run(() => SendMailExImpl(smtp, message));
 		}
 
+		public static Task SendMailExAsyncMessage(string subject, string msg)
+		{
+
+			var sMTPHost = WebConfigurationManager.AppSettings["SMTPHost"];
+			var sMTPPort = 25;
+			int.TryParse(WebConfigurationManager.AppSettings["SMTPPort"], out sMTPPort);
+			var enableSsl = false;
+			bool.TryParse(WebConfigurationManager.AppSettings["EnableSsl"], out enableSsl);
+			var useDefaultCredentials = true;
+			bool.TryParse(WebConfigurationManager.AppSettings["UseDefaultCredentials"], out useDefaultCredentials);
+			var userName = WebConfigurationManager.AppSettings["UserName"];
+			var userPassword = WebConfigurationManager.AppSettings["UserPassword"];
+
+			var mailFrom = WebConfigurationManager.AppSettings["MailFrom"];
+			var mailTo = WebConfigurationManager.AppSettings["MailTo"];
+			var mailSubject = subject;
+			var mailBody = subject + ". " + msg;
+			var smtp = new SmtpClient(sMTPHost, sMTPPort);
+
+			smtp.EnableSsl = enableSsl;
+			smtp.UseDefaultCredentials = useDefaultCredentials;
+			smtp.Credentials = new NetworkCredential(userName, userPassword);
+
+			var message = new MailMessage(mailFrom, mailTo);
+			message.BodyEncoding = Encoding.UTF8;
+			message.Body = mailBody;
+			message.Subject = mailSubject;
+			message.SubjectEncoding = Encoding.UTF8;
+
+
+			return Task.Run(() => SendMailExImpl(smtp, message));
+		}
+
 		private static void SendMailExImpl(
 			System.Net.Mail.SmtpClient client,
 			System.Net.Mail.MailMessage message)
