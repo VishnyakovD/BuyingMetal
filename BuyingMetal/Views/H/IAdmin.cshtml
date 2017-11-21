@@ -44,44 +44,10 @@
 </div>
 
 <div class="container w" id="prices">
-	@using (Html.BeginForm("EL", "H", FormMethod.Post,new {@class="editform" }))
-	{
-		@Html.AntiForgeryToken()
-		@Html.ValidationSummary(false)
-		<div class="row centered">
-			<div class="col-lg-12">
-				<input type="hidden" name="guid" value="@ViewData["guid"]" />
-				<span>№</span> 
-				<br />
-				<input type="number" readonly="readonly" name="id" value="" style="width:80%" />
-			</div>
-			<div class="col-lg-12">
-				<span>Название</span>
-				<br />
-				<input type="text" name="name" value="" style="width:80%"/>
-			</div>
-			<div class="col-lg-12">
-				<span>Цена</span>
-				<br />
-				<input type="text" name="price" value="" style="width:80%" />
-			</div>
-			<div class="col-lg-12">
-				<span>Описание</span>
-				<br />
-				<input type="text" name="description" value="" style="width:80%" />
-			</div>
-			<div class="col-lg-12">
-				<br />
-				<input type="submit" value="Сохранить" style="width:80%" />
-			</div>
-		</div>
-	}
-
 	<div class="row centered">
 		<div class="col-lg-12">
 			<h1 class="title">Цены на покупку популярных металлов</h1>
 		</div>
-
 	</div>
 	<div class="row centered">
 		<br><br>
@@ -114,13 +80,20 @@
 			<h2 class="title">Какой металл мы можем купить?</h2>
 			<br>
 			<div class="col-lg-12">
+
+
+
 				<table class="table table-bordered table-striped price-table">
 					<tr>
 						<th>№</th>
 						<th>Название металла</th>
 						<th></th>
 						<th>грн за кг</th>
+
 					</tr>
+
+
+
 					@foreach (var item in Model.ListPriceItem)
 					{
 						<tr style="cursor:pointer" onclick="SetEditForm(@item.Id,'@item.Name','@item.Price','@item.Description')">
@@ -131,20 +104,6 @@
 						</tr>
 					}
 				</table>
-				<script>
-					function SetEditForm(id, name, price, descr) {
-						var form1 = document.querySelector(".editform");
-						var id1 = form1.querySelector("input[name=id]");
-						var name1 = form1.querySelector("input[name=name]");
-						var price1 = form1.querySelector("input[name=price]");
-						var description1 = form1.querySelector("input[name=description]");
-						id1.value = id;
-						name1.value = name;
-						price1.value = price;
-						description1.value = descr;
-						window.scrollTo(480, 450);
-					}
-				</script>
 			</div>
 		</div>
 	</div>
@@ -191,7 +150,7 @@
 					</div>
 					<textarea name="message" class="form-control" rows="5" placeholder="Напишите ваш вопрос..." required=""></textarea>
 					<br />
-						<button type="submit" class="btn btn-lg btn-info pull-right">Отправить</button>
+					<button type="submit" class="btn btn-lg btn-info pull-right">Отправить</button>
 				}
 
 			</div>
@@ -329,29 +288,91 @@
 	</div>
 }
 
-<div class="extra-call">
-	<div style="text-align: center; position: relative">
-		@*<div style="color:red">Уважаемые клиенты!</div>*@
-		<div style="margin-bottom: 5px">Нашли цену лучше чем у нас?</div>
+	@*<div class="extra-call">
+			<div style="text-align: center; position: relative">
 
-		<div style="margin-bottom: 10px;">Позвони <b style="color:red">СЕЙЧАС</b>, мы предложим ту цену, которая тебя <b style="color: red;background: rgba(0, 0, 0, 0.60);padding-right: 5px;border-radius: 5px">устроит</b>.</div>
+				<div style="margin-bottom: 5px">Нашли цену лучше чем у нас?</div>
 
-		<div style="margin-bottom: 10px;">
-			<img height="32" src="~/Images/phone.gif" />
-			Ждем Вашего звонка!!!
-			<img height="32" src="~/Images/phone.gif" />
-			<br />
-			<a style="color:red" href="tel:0984947650">
-				098-49-47-650
-			</a>,
-			<a style="color: red" href="tel:0951522629">
-				095-15-22-629
-			</a>,
-			<a style="color: red" href="tel:0444960722">
-				044-496-07-22
-			</a>
+				<div style="margin-bottom: 10px;">Позвони <b style="color:red">СЕЙЧАС</b>, мы предложим ту цену, которая тебя <b style="color: red;background: rgba(0, 0, 0, 0.60);padding-right: 5px;border-radius: 5px">устроит</b>.</div>
+
+				<div style="margin-bottom: 10px;">
+					<img height="32" src="~/Images/phone.gif" />
+					Ждем Вашего звонка!!!
+					<img height="32" src="~/Images/phone.gif" />
+					<br />
+					<a style="color:red" href="tel:0984947650">
+						098-49-47-650
+					</a>,
+					<a style="color: red" href="tel:0951522629">
+						095-15-22-629
+					</a>,
+					<a style="color: red" href="tel:0444960722">
+						044-496-07-22
+					</a>
+				</div>
+
+				<img class="lava" src="~/Images/metal.gif" />
+			</div>
+		</div>*@
+
+
+
+	<div class="modal fade in edit-modal" style="display: none" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$(this).closest('.modal').css('display','none')">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">Информация</h4>
+				</div>
+				<div class="modal-body">
+					@using (Html.BeginForm("EL", "H", FormMethod.Post, new { @class = "editform" }))
+			{
+						@Html.AntiForgeryToken()
+						@Html.ValidationSummary(false)
+
+						<div class="row">
+
+
+							<div class="col-lg-12">
+								<span>№ -9999(Новый элмент)</span>
+								<input type="hidden" name="guid" value="@ViewData["guid"]" />
+								<input class="form-control" type="number" required="" name="id" value="" />
+							</div>
+							<div class="col-lg-12">
+								<span>Название металла</span>
+								<input class="form-control" type="text" name="name" required="" value="" />
+							</div>
+							<div class="col-lg-12">
+								<span>Описание</span>
+								<input class="form-control" type="text" name="description" value="" />
+							</div>
+
+							<div class="col-lg-12">
+								<span>грн за кг</span>
+								<input class="form-control" type="text" name="price" required="" value="" />
+							</div>
+							<div class="col-lg-12"><input class="btn btn-success btn-sm" type="submit" value="Сохранить" /></div>
+
+						</div>
+			}
+				</div>
+			</div>
 		</div>
-
-		<img class="lava" src="~/Images/metal.gif" />
 	</div>
-</div>
+
+<script>
+					function SetEditForm(id, name, price, descr) {
+						var modal = document.querySelector(".edit-modal");
+						modal.style = "display:block";
+						var form1 = document.querySelector(".editform");
+						var id1 = form1.querySelector("input[name=id]");
+						var name1 = form1.querySelector("input[name=name]");
+						var price1 = form1.querySelector("input[name=price]");
+						var description1 = form1.querySelector("input[name=description]");
+						id1.value = id;
+						name1.value = name;
+						price1.value = price;
+						description1.value = descr;
+
+					}
+</script>
