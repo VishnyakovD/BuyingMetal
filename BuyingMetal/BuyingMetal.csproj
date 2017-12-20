@@ -149,6 +149,7 @@
     </Compile>
     <Compile Include="MailingManager.cs" />
     <Compile Include="Models\PriceModel.cs" />
+    <Compile Include="Modules\AesManagedManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,7 @@
   <ItemGroup>
     <None Include="bundleconfig.json" />
     <Content Include="model.json" />
+    <Content Include="model-base.json" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Views\H\IAdmin.cshtml" />
   </ItemGroup>

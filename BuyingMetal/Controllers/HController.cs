@@ -9,6 +9,7 @@ using Microsoft.ApplicationInsights;
 using System.Web.Hosting;
 using System.IO;
 using BuyingMetal.Models;
+using BuyingMetal.Modules;
 
 namespace BuyingMetal.Controllers
 {
@@ -48,11 +49,23 @@ namespace BuyingMetal.Controllers
 			return true;
 		}
 
-		public ActionResult I(string message="")
+		public ActionResult I(int sort = 0, string message="")
 		{
 			try
 			{
 				var model = GetModel();
+				switch (sort)
+				{
+					case 1:
+						model.ListPriceItem = model.ListPriceItem.OrderBy(i => i.Id).ToList();
+						break;
+					case 2:
+						model.ListPriceItem = model.ListPriceItem.OrderBy(i => i.Name).ToList();
+						break;
+					default:
+						model.ListPriceItem = model.ListPriceItem.OrderBy(i => i.Sort).ToList();
+						break;
+				}
 				if (!message.IsNullOrWhiteSpace())
 				{
 					ViewData["Message"] = message;
@@ -247,7 +260,7 @@ namespace BuyingMetal.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult EL(string guid, int id, string name, string price, string description)
+		public ActionResult EL(string guid, int id, string name, string price, string description, int sort=9999)
 		{
 			bool msg=false;
 			ViewData["guid"] = guid;
@@ -289,20 +302,30 @@ namespace BuyingMetal.Controllers
 						model.Block3.Description = description;
 						break;
 					case -9999://добавление элемента
-						var last = 0;
-						if (model.ListPriceItem.Count()>0)
-						last = model.ListPriceItem.Last().Id++;
+						var lastId = 1;
+						var last = model.ListPriceItem.Last();
+						if (last != null)
+						{
+							lastId = last.Id;
+						}	
 
-						model.ListPriceItem.Add(new PriceItemModel { Description = description, Id = last,Name=name,Price=price });
+						model.ListPriceItem.Add(new PriceItemModel { Description = description, Id = ++lastId, Name=name,Price=price,Sort=sort });
 						break;
 					default:
-						var item=model.ListPriceItem.First(it => it.Id == id);
-							if(item!=null)
-							{
-								item.Name = name;
-								item.Price = price;
-								item.Description = description;
-							}
+						//int i = 0;
+						//model.ListPriceItem.ForEach(it =>
+						//{
+						//	it.Id = ++i;
+						//	it.Sort = it.Id;
+						//});
+						var item = model.ListPriceItem.First(it => it.Id == id);
+						if (item != null)
+						{
+							item.Name = name;
+							item.Price = price;
+							item.Description = description;
+							item.Sort = sort;
+						}
 						break;
 				}
 				msg = SetModel(model);
@@ -314,6 +337,10 @@ namespace BuyingMetal.Controllers
 			}
 
 			return RedirectToAction("IAdmin", "H", new{ guid = guid, message=msg.ToString()} );
+		}
+
+		public string Q() {
+			return AesManagedManager.Encrypt("мама мыла раму");
 		}
 	}
 }

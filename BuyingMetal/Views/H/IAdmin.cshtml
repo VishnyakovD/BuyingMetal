@@ -86,6 +86,7 @@
 				<table class="table table-bordered table-striped price-table">
 					<tr>
 						<th>№</th>
+						<th>Сортировка</th>
 						<th>Название металла</th>
 						<th></th>
 						<th>грн за кг</th>
@@ -96,8 +97,9 @@
 
 					@foreach (var item in Model.ListPriceItem)
 					{
-						<tr style="cursor:pointer" onclick="SetEditForm(@item.Id,'@item.Name','@item.Price','@item.Description')">
+						<tr style="cursor:pointer" onclick="SetEditForm(@item.Id,'@item.Name','@item.Price','@item.Description', '@item.Sort')">
 							<td>@item.Id</td>
+							<td class="text-left">@item.Sort</td>
 							<td class="text-left">@item.Name</td>
 							<td class="text-right">цена</td>
 							<td class="text-left">@item.Price</td>
@@ -339,6 +341,10 @@
 								<input class="form-control" type="number" required="" name="id" value="" />
 							</div>
 							<div class="col-lg-12">
+								<span>Сортировка</span>
+								<input class="form-control" type="number" name="sort" required="" value="" />
+							</div>
+							<div class="col-lg-12">
 								<span>Название металла</span>
 								<input class="form-control" type="text" name="name" required="" value="" />
 							</div>
@@ -361,7 +367,7 @@
 	</div>
 
 <script>
-					function SetEditForm(id, name, price, descr) {
+					function SetEditForm(id, name, price, descr, sort) {
 						var modal = document.querySelector(".edit-modal");
 						modal.style = "display:block";
 						var form1 = document.querySelector(".editform");
@@ -369,10 +375,12 @@
 						var name1 = form1.querySelector("input[name=name]");
 						var price1 = form1.querySelector("input[name=price]");
 						var description1 = form1.querySelector("input[name=description]");
+						var sort1 = form1.querySelector("input[name=sort]");
 						id1.value = id;
 						name1.value = name;
 						price1.value = price;
 						description1.value = descr;
+						sort1.value = sort;
 
 					}
 </script>

@@ -27,6 +27,7 @@ namespace BuyingMetal.Models
 		public string Name { set; get; }
 		public string Price { set; get; }
 		public string Description { set; get; }
+		public int Sort { set; get; }
 
 		public PriceItemModel()
 		{
