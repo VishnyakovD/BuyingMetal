@@ -10,6 +10,7 @@ using System.Web.Hosting;
 using System.IO;
 using BuyingMetal.Models;
 using BuyingMetal.Modules;
+using BuyingMetal.Bot;
 
 namespace BuyingMetal.Controllers
 {
@@ -88,6 +89,9 @@ namespace BuyingMetal.Controllers
 			{
 				if (!tel.IsNullOrWhiteSpace())
 				{
+
+					new BotMain(tel+@"
+"+message);
 					//IMailingManager mail = new MailingManager();
 					//mail.SendMailNewOrder();
 					SendMailEx.SendMailExAsyncOrder(tel, message);
