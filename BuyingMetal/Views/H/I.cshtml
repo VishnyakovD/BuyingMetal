@@ -249,7 +249,7 @@
 							<i class="fa fa-cogs" style="padding:0"></i> ukrmetal.in.ua
 						</a>
 					</div>
-					<div class="navbar-collapse collapse navbar-collapse-f">
+					@*<div class="navbar-collapse collapse navbar-collapse-f">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="index.html">Все Цены</a></li>
 							<li><a href="services.html">Доставка и Оплата</a></li>
@@ -257,7 +257,7 @@
 							<li><a href="about.html">Контакты</a></li>
 							<li><a href="about.html">О нас</a></li>
 						</ul>
-					</div>
+					</div>*@
 				</div>
 			</div>
 
@@ -289,16 +289,21 @@
 
 <div class="extra-call">
 	<div style="text-align: center; position: relative">
-		@*<div style="color:red">Уважаемые клиенты!</div>*@
-		<div style="margin-bottom: 5px">Нашли цену лучше чем у нас?</div>
+		<div>
+			Нашли цену лучше чем у нас? Позвони <b style="color:red">СЕЙЧАС</b>, мы предложим приемлемую для Вас цену.
+									<button class="btn btn-xs btn-success" onclick="GoCall()">																			
+										<img height="32" src="~/Images/phone.gif" />
+										Заказать звонок
+									</button>
+			<script>
+				function GoCall() {
+					window.location.href = '/#call';
+				}
+			</script>
+		</div>
 
-		<div style="margin-bottom: 10px;">Позвони <b style="color:red">СЕЙЧАС</b>, мы предложим приемлемую для вас цену.</div>
-
-		<div style="margin-bottom: 10px;">
-
-
+		<div>		
 			<img height="32" src="~/Images/phone.gif" />
-			
 			<a style="color:red" href="tel:0984947650" onclick="goog_report_conversion ('tel:0984947650')" target="_blank">
 				098-49-47-650
 			</a>,
@@ -307,8 +312,7 @@
 			</a>,
 			<a style="color: red" href="tel:0444960722" onclick="goog_report_conversion ('tel:0444960722')" target="_blank">
 				044-496-07-22
-			</a>
-			<img height="32" src="~/Images/phone.gif" />
+			</a>			
 		</div>
 	</div>
 </div>

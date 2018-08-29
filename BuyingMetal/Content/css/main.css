@@ -443,18 +443,19 @@ hr {
 .extra-call {
 	position: fixed;
 	bottom: 0;
-	background: black;
+	background: #ebebeb;
 	left: 0;
 	right: 0;
-	padding: 15px 20px;
-	font-weight: 600;
-	font-size: 20px;
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
+	padding: 5px;
+	font-weight: normal;
+	font-size: 18px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
 	margin-left: 50px;
 	margin-right: 50px;
-	color: white;
 	overflow: hidden;
+	border: 1px solid #f85c37;
+	border-bottom: 0;
 }
 
 .lava {
@@ -479,9 +480,7 @@ hr {
 
 @media (max-width:715px) {
 	.extra-call {
-		padding: 5px 10px;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
+		padding: 5px;
 		margin-left: 10px;
 		margin-right: 10px;
 		font-size: 14px;
