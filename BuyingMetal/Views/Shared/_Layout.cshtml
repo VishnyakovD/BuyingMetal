@@ -74,15 +74,49 @@
 		ga('send', 'pageview');
 
 	</script>
+
+
+
+
+
+	<script type="text/javascript">
+		//var onloadCallback = function () {
+		//	grecaptcha.render('html_elementRe', {
+		//		'sitekey': '6LdUrW0UAAAAAN-g5OOYRckMzYzjNbrzbe7dkHAF'
+		//	});
+		//};
+		function verifyCallback() {
+			if (grecaptcha.getResponse().length !== 0) {
+				$('#subbtn').removeAttr("disabled");
+			}
+		}
+
+		var onloadCallback = function () {
+			grecaptcha.render('form111', {
+				'sitekey': '6LdUrW0UAAAAAN-g5OOYRckMzYzjNbrzbe7dkHAF',
+				'callback': verifyCallback,
+				'theme': 'dark'
+			});
+		};
+
+
+
+	</script>
+
+
+
+
 </head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript>
 		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TGNFLMK"
-				height="0" width="0" style="display:none;visibility:hidden"></iframe>
+						height="0" width="0" style="display:none;visibility:hidden"></iframe>
 	</noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	@RenderBody()
+
+
 	<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 	<script src="~/Scripts/bootstrap.min.js"></script>
 
@@ -119,10 +153,10 @@
 /* ]]> */
 	</script>
 	<script type="text/javascript"
-			src="//www.googleadservices.com/pagead/conversion_async.js">
+					src="//www.googleadservices.com/pagead/conversion_async.js">
 	</script>
 
-</body> 
+</body>
 
 
 
