@@ -444,15 +444,13 @@ hr {
 	position: fixed;
 	bottom: 0;
 	background: #ebebeb;
-	left: 0;
-	right: 0;
+	left: 10px;
+	right: 10px;
 	padding: 5px;
 	font-weight: normal;
 	font-size: 18px;
 	border-top-left-radius: 7px;
 	border-top-right-radius: 7px;
-	margin-left: 50px;
-	margin-right: 50px;
 	overflow: hidden;
 	border: 1px solid #f85c37;
 	border-bottom: 0;

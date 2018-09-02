@@ -76,9 +76,26 @@
 			<h4>Цены на покупку популярных металов, указаны для оптовых и постоянных клиентов!</h4>
 		</div>
 	</div>
-	<br>
-	<br>
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<br />
+			<div class="alert alert-danger" style="cursor:pointer" onclick="ShowFrod()">
+				<h3>!!!Осторожно МОШЕННИКИ!!! Прочитайте нашу <b style="color:blue">статью</b> о мошенниках...</h3>
+			</div>
+
+		</div>
+
+		<script>
+			function ShowFrod() {
+				$("#myModalFrod").modal("show");
+			}
+		</script>
+
+	</div>
 </div>
+<br>
+<br>
+
 
 <div id="dg">
 	<div class="container">
@@ -301,6 +318,43 @@
 		</div>
 	</div>
 }
+
+<div class="modal fade in" style="display: none" id="myModalFrod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 90%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="$(" #myModalFrod").modal("hide");">&times;</button>
+				<h4 class="modal-title text-center">!!!ОСТОРОЖНО МОШЕННИКИ!!!</h4>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="alert alert-danger">
+						<div style="font-size:18px;    font-weight: 500;">
+							<p>Уважаемые клиенты. Не так давно появился сайт(ukrsplav. in. ua), который очень сильно похож на наш, в котором вся информация была скопирована с нашего сайта.</p>
+
+							<p>Сообщаем, что мы никак не причастны к деятельности этого сайта и хотим вас обезопасить от того чтобы вы не попались на крючек мошенников.</p>
+
+							<p>На данном сайте не указано ни название предприятия, которое занимается работой с клиентами, ни официального адреса, по которому в случае каких либо проблем можно обратиться, чтобы их решить. Также, цены которые установлены так, заставляются задуматься о том легально ли они работают и имеют ли хоть какие-то обязательства перед вами.</p><br />
+
+							<p>Обезопасьте себя от работы с сайтами-подделками, от работы с мошенниками, которые могут взять у вас металл и не заплатить.</p>
+
+							<div style="font-weight: 600;">Как определить сайт Официальный или нет?</div>
+							<div>1. На сайте указана информация о названии предприятия, которое работает с клиентами (ООО, ФОП и т.д.). Такие организации можно легко проверить а едином государственном реестре.</div>
+							<div>2. На сайте указан физический адрес где расположено предприятие.</div>
+							<div>3. На сайте указаны адекватные цены, которые отвечают текущему рынку.</div><br />
+							<h3 class="text-center">Будьте бдительны и пользуйтесь услугами только проверенных компаний!!!</h3>
+						</div>
+						
+						
+					</div>
+				</div>
+			</div>
+			@*<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Save & Go</button>
+				</div>*@
+		</div>
+	</div>
+</div>
 
 <div class="extra-call">
 	<div style="text-align: center; position: relative">
