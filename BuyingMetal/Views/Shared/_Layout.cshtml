@@ -91,11 +91,11 @@
 			}
 		}
 
+
 		var onloadCallback = function () {
 			grecaptcha.render('form111', {
 				'sitekey': '6LdUrW0UAAAAAN-g5OOYRckMzYzjNbrzbe7dkHAF',
-				'callback': verifyCallback,
-				'theme': 'dark'
+				'callback': verifyCallback
 			});
 		};
 
@@ -154,6 +154,31 @@
 	</script>
 	<script type="text/javascript"
 					src="//www.googleadservices.com/pagead/conversion_async.js">
+	</script>
+
+	<script>
+
+		function validateForm(event) {
+			var current = $(event.currentTarget).find("textarea");
+			var curVal = current.val();
+			if (curVal.indexOf("http") >= 0) {
+				current.val("");
+				current.focus();
+				grecaptcha.reset();
+				event.preventDefault();
+
+			}
+
+
+			if (grecaptcha.getResponse().length == 0) {
+				event.preventDefault();
+				grecaptcha.reset();
+			}
+		}
+
+		$("body").on("submit", "form", function (event) {
+			validateForm(event);
+		});
 	</script>
 
 </body>
