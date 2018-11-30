@@ -87,6 +87,10 @@ namespace BuyingMetal.Controllers
 		{
 			try
 			{
+				if (message.Contains("http:") || message.Contains("https:")|| message.Contains("www"))
+				{
+					return RedirectToAction("I", "H", new { message = "Сообщении запрещено указывать ссылки!!!" });
+				}
 				if (!tel.IsNullOrWhiteSpace())
 				{
 
