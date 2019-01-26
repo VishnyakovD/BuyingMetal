@@ -98,7 +98,7 @@ namespace BuyingMetal.Controllers
 "+message);
 					//IMailingManager mail = new MailingManager();
 					//mail.SendMailNewOrder();
-					SendMailEx.SendMailExAsyncOrder(tel, message);
+					//SendMailEx.SendMailExAsyncOrder(tel, message);
 					return RedirectToAction("I", "H", new { message = "Мы передали ваш запрос. Ожидайте звонка от нашего менеджера!" });
 				}
 				return RedirectToAction("I", "H", new { message = "Не правильно введен телефон" });
