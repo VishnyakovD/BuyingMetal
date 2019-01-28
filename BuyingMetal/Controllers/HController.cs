@@ -11,25 +11,68 @@ using System.IO;
 using BuyingMetal.Models;
 using BuyingMetal.Modules;
 using BuyingMetal.Bot;
+using System.Net;
 
 namespace BuyingMetal.Controllers
 {
 	public class HController : Controller
 	{
-		private PriceModel GetModel()
+
+		private PriceModel GetGoogleDiscModel()
 		{
-			var model = new PriceModel();
-			var path = HostingEnvironment.ApplicationPhysicalPath + "model.json";
-			if (!System.IO.File.Exists(path))
+			try
 			{
-				throw new Exception("Невозможно зачитать файл с прайс-листом");
+				var model = new PriceModel();
+
+				string result = string.Empty;
+				string url = @"https://docs.google.com/document/export?format=txt&id=14nz6a0bRchOp-PA3YabzchXFEcXDdSxwZOQUbDcJzGw";
+				HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+				request.AutomaticDecompression = DecompressionMethods.GZip;
+
+				using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+				using (Stream stream = response.GetResponseStream())
+				using (StreamReader reader = new StreamReader(stream))
+				{
+					result = reader.ReadToEnd();
+				}
+
+				if (!String.IsNullOrEmpty(result))
+				{
+					var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+					model = serializer.Deserialize<PriceModel>(result);
+					return model;
+				}
+
+				new BotMain("После сериализации, зачитанная модель с гугл диска = null");
+				return null;
+			}
+			catch(Exception err)
+			{
+				new BotMain("Ошибка зачитывания данных с гугл диска: "+err.Message);
+				return null;
 			}
 
-			var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-			using (var sr = System.IO.File.OpenText(path))
+
+		}
+
+		private PriceModel GetModel()
+		{
+			var model = GetGoogleDiscModel();
+
+			if (model == null)
 			{
-				model = serializer.Deserialize<PriceModel>(sr.ReadToEnd());
-			}
+				var path = HostingEnvironment.ApplicationPhysicalPath + "model.json";
+				if (!System.IO.File.Exists(path))
+				{
+					throw new Exception("Невозможно зачитать файл с прайс-листом");
+				}
+
+				var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+				using (var sr = System.IO.File.OpenText(path))
+				{
+					model = serializer.Deserialize<PriceModel>(sr.ReadToEnd());
+				}
+			}	
 			return model;
 		}
 

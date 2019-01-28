@@ -21,12 +21,7 @@ namespace BuyingMetal.Bot
 		public BotMain(string msg)
 		{
 			Bot = new TelegramBotClient("564776855:AAFVIkTln4cHl0InoiYVyQkd6uVxwoJ9rF4");
-
-
 			Bot.SendTextMessageAsync(-1001343181152, msg);
-		
-
-
 		}
 	}
 }
